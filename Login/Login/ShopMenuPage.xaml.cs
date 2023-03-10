@@ -1,6 +1,8 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,9 +13,12 @@ namespace Login
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShopMenuPage : ContentPage
     {
+        public List<Producto> Productos { get; set; }
         public ShopMenuPage()
         {
             InitializeComponent();
+            Productos = new List<Producto>();
+            BindingContext = this;
             mysqlConnection();
         }
 
@@ -23,34 +28,39 @@ namespace Login
             public int Id { get; set; }
             public string Nombre { get; set; }
             public float Precio { get; set; }
+            public byte[] Imagen { get; set; }
         }
+
 
 
         public void mysqlConnection()
         {
             try
             {
-                //crear conexion de la bbdd
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "productos.db3");
-
-                Console.WriteLine(dbPath);
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "productosSqLite.db");
                 var conn = new SQLiteConnection(dbPath);
 
-                conn.CreateTable<Producto>();
+                // Consulta SQL para seleccionar todos los productos
+                var productos = conn.Query<Producto>("SELECT * FROM productos");
 
-                // Insertar un nuevo registro en la tabla
-                var nuevoProducto = new Producto { Nombre = "Ergometro", Precio = 100 };
-                conn.Insert(nuevoProducto);
+                // Iterar sobre los resultados de la consulta
+                foreach (var producto in productos)
+                {
+                    // Aquí puedes hacer lo que quieras con cada producto, por ejemplo mostrarlo en una lista
+                    Console.WriteLine(producto.Nombre);
+                    Console.WriteLine(producto.Precio);
+                    Console.WriteLine(producto.Imagen);
+                    DisplayAlert("Alert", producto.Precio.ToString(), "OK");
+                    Productos.Add(producto);
+                }
 
-                // Leer todos los registros de la tabla
-                List<Producto> productos = conn.Table<Producto>().ToList();
             }
             catch (Exception e)
             {
                 DisplayAlert("Alert", e.Message, "OK");
                 Console.WriteLine(e.Message);
             }
-            
         }
+
     }
 }

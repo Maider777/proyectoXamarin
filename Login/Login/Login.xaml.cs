@@ -46,6 +46,7 @@ namespace Login
                     {
                         //if is OK
                         //open shop menu page
+                        DisplayAlert("", "username and password corrects", "OK");
                         Navigation.PushModalAsync(new ShopMenuPage());
                         Console.WriteLine("CORRECT");
                     }
