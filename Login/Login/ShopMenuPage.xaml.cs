@@ -1,12 +1,11 @@
 ﻿using SQLite;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static Login.ShopMenuPage;
+
 
 namespace Login
 {
@@ -29,8 +28,8 @@ namespace Login
             public string Nombre { get; set; }
             public float Precio { get; set; }
             public byte[] Imagen { get; set; }
+            public ImageSource ImagenSource { get; set; }
         }
-
 
 
         public void mysqlConnection()
@@ -50,7 +49,13 @@ namespace Login
                     Console.WriteLine(producto.Nombre);
                     Console.WriteLine(producto.Precio);
                     Console.WriteLine(producto.Imagen);
-                    DisplayAlert("Alert", producto.Precio.ToString(), "OK");
+
+                    // Convert Byte[] to Base64
+                    string imageBase64 = Convert.ToBase64String(producto.Imagen);
+                    // Convert Base64string to Stream  
+                    byte[] bytes = System.Convert.FromBase64String(imageBase64);
+                    //ImageSource.FromStream(() => new MemoryStream(bytes));
+                    producto.ImagenSource = ImageSource.FromStream(() => new MemoryStream(bytes));
                     Productos.Add(producto);
                 }
 
