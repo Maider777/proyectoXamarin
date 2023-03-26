@@ -67,5 +67,11 @@ namespace Login
             }
         }
 
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            //al clickar boton de usuario
+            //opciones:lista de deseos, ajustes de la cuenta, cerrar sesion
+            Navigation.PushModalAsync(new UserAccount());
+        }
     }
 }

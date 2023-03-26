@@ -17,11 +17,6 @@ namespace Login
             InitializeComponent();
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonClicked(object sender, EventArgs e)
         {
             //verificar datos login
@@ -58,5 +53,11 @@ namespace Login
             }
             //abrir tienda en linea
         }
+
+        private void OnRegisterClicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new RegisterPage());
+        }
+
     }
 }

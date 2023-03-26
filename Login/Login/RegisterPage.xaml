@@ -3,10 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login.RegisterPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="40" VerticalOptions="CenterAndExpand">
             <Label Text="Register Form"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+
+            <Entry x:Name="txtUser" Placeholder="User" TextColor="Black" PlaceholderColor="Gray" />
+            <Entry x:Name="txtPassword" Placeholder="Password" TextColor="Black" PlaceholderColor="Gray" />
+            <Entry x:Name="txtRepPassword" Placeholder="Repeat password" TextColor="Black" PlaceholderColor="Gray" />
+            <Entry x:Name="txtFName" Placeholder="First name" TextColor="Black" PlaceholderColor="Gray" />
+            <Entry x:Name="txtSName" Placeholder="Second name" TextColor="Black" PlaceholderColor="Gray" />
+            <Entry x:Name="txtEmail" Placeholder="Email" TextColor="Black" PlaceholderColor="Gray" />
+
+            <Button Text="Sign up"
+        VerticalOptions="Center"
+        TextColor="White"
+        BackgroundColor="#112B47"
+        BorderWidth="1.5"
+        CornerRadius="50"
+        BorderColor="#8BE"
+        Clicked="SignUpButtonClicked" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login.Login"
-             
+             xmlns:tap="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
              BackgroundColor="#112B47">
     <ContentPage.Content>
         
@@ -23,21 +23,26 @@
                 BorderColor="#8BE"
                 Clicked="buttonClicked"
             ></Button>
-            
+
             <Label HorizontalOptions="Center">
                 <Label.FormattedText>
-                    
                     <FormattedString>
                         <Span Text="Don't have an account?" TextColor="Gray"></Span>
-                        <Span Text="Register" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"></Span>
                     </FormattedString>
-                    
                 </Label.FormattedText>
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
             </Label>
-            
+
+            <Button
+                Text="Register"
+                BackgroundColor="Transparent"
+                TextColor="Gray" 
+                FontAttributes="Bold"
+                TextTransform="Lowercase"
+                VerticalOptions="Center"
+                Clicked="OnRegisterClicked"
+            ></Button>
+
+
         </StackLayout>
         
     </ContentPage.Content>
