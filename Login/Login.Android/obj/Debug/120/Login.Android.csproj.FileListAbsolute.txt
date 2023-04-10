@@ -661,3 +661,7 @@ C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\android\asse
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\android\assets\SQLitePCLRaw.lib.e_sqlite3.android.dll
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\iconsusuario.png
+C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\foto.jpg
+C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\cesta.png
+C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\anadircesta.png
+C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\logout.png

@@ -71,7 +71,20 @@ namespace Login
         {
             //al clickar boton de usuario
             //opciones:lista de deseos, ajustes de la cuenta, cerrar sesion
-            Navigation.PushModalAsync(new UserAccount());
+            Navigation.PushModalAsync(new Login());
         }
+
+        int numProductos = 0;
+
+        private void ImageButton_Clicked2(object sender, EventArgs e)
+        {
+            // Incrementa el contador de productos
+            numProductos++;
+
+            // Actualiza el texto del Label y muestra el Label
+            NumProductosLabel.Text = numProductos.ToString();
+            NumProductosLabel.IsVisible = true;
+        }
+
     }
 }

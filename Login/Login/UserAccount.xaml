@@ -1,9 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login.UserAccount">
-  <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+
+    <ContentPage Title="Account">
+        <StackLayout Orientation="Vertical">
+
+            <!-- Agregar la imagen en la parte superior -->
+            <Image Source="foto.jpg" 
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Aspect="AspectFill"/>
+
+            <!-- Agregar el nombre del usuario debajo de la imagen -->
+            <Label Text="Nombre del Usuario" 
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   Margin="10,20,0,0"/>
+
+            <!-- Agregar los botones en el centro -->
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="Center" 
+                         Margin="0,40,0,0">
+
+                <Button Text="Mi carrito" 
+                        WidthRequest="150" 
+                        Margin="0,0,20,0"/>
+
+                <Button Text="Cerrar Sesión" 
+                        WidthRequest="150"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage>
+
 </TabbedPage>

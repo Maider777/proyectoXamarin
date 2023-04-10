@@ -1,11 +1,14 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Login.ShopMenuPage;
 
 namespace Login
 {
@@ -17,33 +20,50 @@ namespace Login
             InitializeComponent();
         }
 
+        public class users
+        {
+            [PrimaryKey, AutoIncrement]
+            public string User { get; set; }
+            public string Password { get; set; }
+            public string FirstName { get; set; }
+            public string SecondName { get; set; }
+            public string Email { get; set; }
+        }
+
         private void buttonClicked(object sender, EventArgs e)
         {
-            //verificar datos login
-            string username = "maider";
             try
             {
-                if (!txtUsername.Text.Equals(username) || (txtUsername == null))
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "usersPasswords.db");
+                var conn = new SQLiteConnection(dbPath);
+
+                // Consulta SQL para seleccionar todos los productos
+                var users = conn.Query<users>("SELECT * FROM users");
+
+                foreach (var user in users)
                 {
-                    DisplayAlert("Alert", "username not correct", "OK");
-                    Console.WriteLine("Error, username not correct");
-                }
-                else
-                {
-                    //if username OK
-                    string password = "a";
-                    if (!txtPassword.Text.Equals(password) || txtPassword == null)
+                    var firstName = user.FirstName;
+                    var password = user.Password;
+
+                    if (txtUsername.Text.Equals(firstName))
                     {
-                        DisplayAlert("Alert", "password not correct", "OK");
-                        Console.WriteLine("Error, password not correct");
+                        if (txtPassword.Text.Equals(password))
+                        {
+                            DisplayAlert("", "username and password corrects", "OK");
+                            Navigation.PushModalAsync(new ShopMenuPage());
+                            Console.WriteLine("CORRECT");
+                            break;
+                        }
+                        else
+                        {
+                            DisplayAlert("", "password is not correct", "OK");
+                            break;
+                        }
                     }
                     else
                     {
-                        //if is OK
-                        //open shop menu page
-                        DisplayAlert("", "username and password corrects", "OK");
-                        Navigation.PushModalAsync(new ShopMenuPage());
-                        Console.WriteLine("CORRECT");
+                        DisplayAlert("", "username is not correct", "OK");
+                        break;
                     }
                 }
             }
@@ -51,7 +71,7 @@ namespace Login
             {
                 Console.WriteLine(e2.Message);
             }
-            //abrir tienda en linea
+
         }
 
         private void OnRegisterClicked(object sender, EventArgs e)
