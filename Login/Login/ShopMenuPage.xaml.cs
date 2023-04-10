@@ -1,6 +1,5 @@
 ﻿using SQLite;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Xamarin.Forms;
@@ -12,15 +11,22 @@ namespace Login
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShopMenuPage : ContentPage
     {
+        //variables
         public List<Producto> Productos { get; set; }
+        public List<Producto> CestaProductos { get; set; }
+
         public ShopMenuPage()
         {
             InitializeComponent();
+            //crear lista de productos
             Productos = new List<Producto>();
+            //crear lista de productos de la cesta
+            CestaProductos = new List<Producto>();
             BindingContext = this;
             mysqlConnection();
         }
 
+        //crear producto
         public class Producto
         {
             [PrimaryKey, AutoIncrement]
@@ -29,9 +35,11 @@ namespace Login
             public float Precio { get; set; }
             public byte[] Imagen { get; set; }
             public ImageSource ImagenSource { get; set; }
+            public int ImageButtonId { get; set; }
         }
 
 
+        //crear conexion y mostrar productos
         public void mysqlConnection()
         {
             try
@@ -43,6 +51,7 @@ namespace Login
                 var productos = conn.Query<Producto>("SELECT * FROM productos");
 
                 // Iterar sobre los resultados de la consulta
+                int i = 0;
                 foreach (var producto in productos)
                 {
                     // Aquí puedes hacer lo que quieras con cada producto, por ejemplo mostrarlo en una lista
@@ -57,6 +66,10 @@ namespace Login
                     //ImageSource.FromStream(() => new MemoryStream(bytes));
                     producto.ImagenSource = ImageSource.FromStream(() => new MemoryStream(bytes));
                     Productos.Add(producto);
+
+                    // Asignar un id único a cada ImageButton
+                    producto.ImageButtonId = i++;
+
                 }
 
             }
@@ -69,21 +82,42 @@ namespace Login
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            //al clickar boton de usuario
-            //opciones:lista de deseos, ajustes de la cuenta, cerrar sesion
+            //boton de cerrar sesion
             Navigation.PushModalAsync(new Login());
         }
 
         int numProductos = 0;
-
         private void ImageButton_Clicked2(object sender, EventArgs e)
         {
+            //boton de añadir a la cesta
+
+            // Obtener el producto correspondiente al botón pulsado
+            var button = (ImageButton)sender;
+            var producto = (Producto)button.BindingContext;
+
             // Incrementa el contador de productos
             numProductos++;
 
             // Actualiza el texto del Label y muestra el Label
             NumProductosLabel.Text = numProductos.ToString();
             NumProductosLabel.IsVisible = true;
+
+            //añadir producto a la cesta
+            CestaProductos.Add(producto);
+        }
+
+
+        private void ImageButton_Clicked_Cesta(object sender, EventArgs e)
+        {
+            //abrir pantalla de cesta, llevar lista de productos de la cesta
+            Navigation.PushModalAsync(new Cesta(CestaProductos));
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            //boton de Ver más
+            //mostrar la imagen, boton de comprar opcional, descripcion
+
         }
 
     }

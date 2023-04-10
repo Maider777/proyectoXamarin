@@ -20,3 +20,4 @@ C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.dll
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\refint\Login.dll
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.pdb
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\ref\Login.dll
+C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Cesta.xaml.g.cs
