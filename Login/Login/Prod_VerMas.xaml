@@ -1,0 +1,22 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Login.Prod_VerMas">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Mostrar el nombre del producto -->
+            <Label Text="{Binding Producto.Nombre}" FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+
+            <!-- Mostrar la imagen del producto -->
+            <Image Source="{Binding Producto.ImagenSource}" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
+
+            <!-- Mostrar el precio del producto -->
+            <Label Text="{Binding Producto.Precio}" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+
+            <!-- Botón para comprar el producto -->
+            <Button Text="Comprar" HorizontalOptions="CenterAndExpand" />
+
+            <!-- Mostrar la descripción del producto -->
+            <Label Text="{Binding Producto.Descripcion}" FontSize="Small" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

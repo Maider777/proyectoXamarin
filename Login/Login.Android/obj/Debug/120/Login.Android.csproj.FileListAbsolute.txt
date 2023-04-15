@@ -665,3 +665,4 @@ C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\cesta.png
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\anadircesta.png
 C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\logout.png
+C:\Users\maide\source\repos\Login\Login\Login.Android\obj\Debug\120\res\drawable\minus.png

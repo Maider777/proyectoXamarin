@@ -14,6 +14,7 @@ namespace Login
         //variables
         public List<Producto> Productos { get; set; }
         public List<Producto> CestaProductos { get; set; }
+        public static int numProductos=0;
 
         public ShopMenuPage()
         {
@@ -34,6 +35,7 @@ namespace Login
             public string Nombre { get; set; }
             public float Precio { get; set; }
             public byte[] Imagen { get; set; }
+            public string Descripcion { get; set; }
             public ImageSource ImagenSource { get; set; }
             public int ImageButtonId { get; set; }
         }
@@ -58,6 +60,7 @@ namespace Login
                     Console.WriteLine(producto.Nombre);
                     Console.WriteLine(producto.Precio);
                     Console.WriteLine(producto.Imagen);
+                    Console.WriteLine(producto.Descripcion);
 
                     // Convert Byte[] to Base64
                     string imageBase64 = Convert.ToBase64String(producto.Imagen);
@@ -86,7 +89,6 @@ namespace Login
             Navigation.PushModalAsync(new Login());
         }
 
-        int numProductos = 0;
         private void ImageButton_Clicked2(object sender, EventArgs e)
         {
             //boton de añadir a la cesta
@@ -117,7 +119,10 @@ namespace Login
         {
             //boton de Ver más
             //mostrar la imagen, boton de comprar opcional, descripcion
-
+            var button = (Button)sender;
+            var producto = (Producto)button.BindingContext;
+            Prod_VerMas.mostrarProducto(producto);
+            Navigation.PushModalAsync(new Prod_VerMas(producto));
         }
 
     }
