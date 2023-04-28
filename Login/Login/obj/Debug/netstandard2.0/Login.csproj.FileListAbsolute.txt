@@ -6,8 +6,10 @@ C:\Users\maide\source\repos\Login\Login\Login\bin\Debug\netstandard2.0\System.Dr
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.csproj.AssemblyReference.cache
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Cesta.xaml.g.cs
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.xaml.g.cs
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Prod_VerMas.xaml.g.cs
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\RegisterPage.xaml.g.cs
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\ShopMenuPage.xaml.g.cs
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\UserAccount.xaml.g.cs
@@ -20,5 +22,3 @@ C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.dll
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\refint\Login.dll
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Login.pdb
 C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\ref\Login.dll
-C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Cesta.xaml.g.cs
-C:\Users\maide\source\repos\Login\Login\Login\obj\Debug\netstandard2.0\Prod_VerMas.xaml.g.cs

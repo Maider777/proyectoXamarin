@@ -14,6 +14,7 @@ namespace Login
     public partial class Prod_VerMas : ContentPage
     {
         public Producto Producto { get; set; }
+        public List<Producto> CestaProductos { get; set; }
         public Prod_VerMas(Producto producto)
         {
             InitializeComponent();
@@ -29,5 +30,6 @@ namespace Login
             string descripcion = producto.Descripcion;
             Console.WriteLine(nombre+imagen+precio+descripcion);
         }
+
     }
 }

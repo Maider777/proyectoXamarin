@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml.Schema;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,7 @@ namespace Login
         public List<Producto> Productos { get; set; }
         public List<Producto> CestaProductos { get; set; }
         public static int numProductos=0;
+        public static float total;
 
         public ShopMenuPage()
         {
@@ -33,7 +35,7 @@ namespace Login
             [PrimaryKey, AutoIncrement]
             public int Id { get; set; }
             public string Nombre { get; set; }
-            public float Precio { get; set; }
+            public string Precio { get; set; }
             public byte[] Imagen { get; set; }
             public string Descripcion { get; set; }
             public ImageSource ImagenSource { get; set; }
@@ -111,8 +113,13 @@ namespace Login
 
         private void ImageButton_Clicked_Cesta(object sender, EventArgs e)
         {
+            foreach(Producto producto in CestaProductos)
+            {
+                string sPrecio = producto.Precio.Replace("€", "");
+                total = total + float.Parse(sPrecio);
+            }
             //abrir pantalla de cesta, llevar lista de productos de la cesta
-            Navigation.PushModalAsync(new Cesta(CestaProductos));
+            Navigation.PushModalAsync(new Cesta(CestaProductos,total));
         }
 
         private void Button_Clicked(object sender, EventArgs e)

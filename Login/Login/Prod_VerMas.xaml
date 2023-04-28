@@ -8,13 +8,11 @@
 
             <!-- Mostrar la imagen del producto -->
             <Image Source="{Binding Producto.ImagenSource}" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
-
+            <Label Text="Precio: " FontAttributes="Bold"></Label>
             <!-- Mostrar el precio del producto -->
-            <Label Text="{Binding Producto.Precio}" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
-
-            <!-- Botón para comprar el producto -->
-            <Button Text="Comprar" HorizontalOptions="CenterAndExpand" />
-
+            <Label Text="{Binding Producto.Precio}" FontSize="Medium" HorizontalOptions="StartAndExpand" />
+            
+            <Label Text="Descripcion: " FontAttributes="Bold"></Label>
             <!-- Mostrar la descripción del producto -->
             <Label Text="{Binding Producto.Descripcion}" FontSize="Small" HorizontalOptions="CenterAndExpand" />
         </StackLayout>
