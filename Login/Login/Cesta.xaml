@@ -41,8 +41,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Text="Total: " FontAttributes="Bold" FontSize="Medium" Margin="0,20,0,10" TextColor="#FFFFFF" />
-            <Label Text="{Binding Total}" FontSize="Large" HorizontalOptions="CenterAndExpand" TextColor="#112B47" />
+            <Label Text="Total: " FontAttributes="Bold" FontSize="Medium" Margin="0,20,0,10" TextColor="#112B47" />
+            <Label x:Name="Total" FontSize="Large" HorizontalOptions="CenterAndExpand" TextColor="#112B47" />
 
             <Button Text="COMPRAR" FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,20" BackgroundColor="#112B47" TextColor="#FFFFFF" />
         </StackLayout>

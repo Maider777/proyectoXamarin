@@ -118,6 +118,7 @@ namespace Login
 
         private void ImageButton_Clicked_Cesta(object sender, EventArgs e)
         {
+            total = 0;
             foreach(Producto producto in CestaProductos)
             {
                 string sPrecio = producto.Precio.Replace("€", "");

@@ -16,46 +16,38 @@ namespace Login
     public partial class Cesta : ContentPage
     {
         public List<Producto> Productos { get; set; }
-        public static float Total { get; set; }
 
         public Cesta(List<Producto> productos, float total)
         {
             InitializeComponent();
-            Total = total;
+            Total.Text = total.ToString();
             Productos = productos;
             BindingContext = this;
-        }
-
-        public void mostrarImagen()
-        {
-            foreach (var item in Productos)
-            {
-                // Convert Byte[] to Base64
-                string imageBase64 = Convert.ToBase64String(item.Imagen);
-                // Convert Base64string to Stream  
-                byte[] bytes = System.Convert.FromBase64String(imageBase64);
-                //ImageSource.FromStream(() => new MemoryStream(bytes));
-                item.ImagenSource = ImageSource.FromStream(() => new MemoryStream(bytes));
-                string sPrecio = item.Precio.Replace("€", "");
-                Total += float.Parse(sPrecio);
-            }
         }
 
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            //boton de eliminar objeto de la cesta
             var button = (ImageButton)sender;
             var product = (Producto)button.BindingContext;
             Productos.Remove(product);
+
             miListView.ItemsSource = null;
             miListView.ItemsSource = Productos;
+
             string sPrecio = product.Precio.Replace("€", "");
-            Total -= float.Parse(sPrecio);
+            float fPrecio = float.Parse(sPrecio);
+            float fTotal = float.Parse(Total.Text.Replace("€", ""));
+
+            fTotal -= fPrecio;
+
+            Total.Text = $"{fTotal.ToString()}€";
+
             numProductos--;
             numProductosLabel.Text = numProductos.ToString();
             numProductosLabel.IsVisible = true;
         }
+
 
     }
 
