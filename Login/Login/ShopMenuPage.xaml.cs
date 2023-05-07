@@ -14,9 +14,10 @@ namespace Login
     {
         //variables
         public List<Producto> Productos { get; set; }
-        public List<Producto> CestaProductos { get; set; }
+        public static List<Producto> CestaProductos { get; set; }
         public static int numProductos=0;
         public static float total;
+        public static Label numProductosLabel { get; set; }
 
         public ShopMenuPage()
         {
@@ -26,6 +27,7 @@ namespace Login
             //crear lista de productos de la cesta
             CestaProductos = new List<Producto>();
             BindingContext = this;
+            numProductosLabel = NumProductosLabel;
             mysqlConnection();
         }
 
@@ -89,9 +91,12 @@ namespace Login
         {
             //boton de cerrar sesion
             Navigation.PushModalAsync(new Login());
+            numProductos = 0;
+            numProductosLabel.Text = "0";
+            CestaProductos.Clear();
         }
 
-        private void ImageButton_Clicked2(object sender, EventArgs e)
+        public static void ImageButton_Clicked2(object sender, EventArgs e)
         {
             //boton de añadir a la cesta
 
@@ -103,8 +108,8 @@ namespace Login
             numProductos++;
 
             // Actualiza el texto del Label y muestra el Label
-            NumProductosLabel.Text = numProductos.ToString();
-            NumProductosLabel.IsVisible = true;
+            numProductosLabel.Text = numProductos.ToString();
+            numProductosLabel.IsVisible = true;
 
             //añadir producto a la cesta
             CestaProductos.Add(producto);

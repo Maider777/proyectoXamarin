@@ -8,7 +8,12 @@
 
             <!-- Mostrar la imagen del producto -->
             <Image Source="{Binding Producto.ImagenSource}" Aspect="AspectFit" VerticalOptions="CenterAndExpand" />
+            
+            <!--.boton de comprar producto-->
+            <Button Clicked="Button_Clicked" BackgroundColor="#112B47" Text="Comprar"></Button>
+            
             <Label Text="Precio: " FontAttributes="Bold"></Label>
+            
             <!-- Mostrar el precio del producto -->
             <Label Text="{Binding Producto.Precio}" FontSize="Medium" HorizontalOptions="StartAndExpand" />
             

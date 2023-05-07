@@ -53,8 +53,8 @@ namespace Login
             string sPrecio = product.Precio.Replace("€", "");
             Total -= float.Parse(sPrecio);
             numProductos--;
-            ShopMenuPage.NumProductosLabel.Text = numProductos.ToString();
-            ShopMenuPage.NumProductosLabel.IsVisible = true;
+            numProductosLabel.Text = numProductos.ToString();
+            numProductosLabel.IsVisible = true;
         }
 
     }

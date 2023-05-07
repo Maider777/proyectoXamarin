@@ -17,7 +17,7 @@ namespace Login {
     public partial class ShopMenuPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        public static global::Xamarin.Forms.Label NumProductosLabel;
+        private global::Xamarin.Forms.Label NumProductosLabel;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {

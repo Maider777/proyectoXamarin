@@ -54,21 +54,13 @@ namespace Login
                             Console.WriteLine("CORRECT");
                             break;
                         }
-                        else
-                        {
-                            DisplayAlert("", "password is not correct", "OK");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        DisplayAlert("", "username is not correct", "OK");
-                        break;
                     }
                 }
+                
             }
             catch (Exception e2)
             {
+                DisplayAlert("", "something is not correct", "OK");
                 Console.WriteLine(e2.Message);
             }
 
