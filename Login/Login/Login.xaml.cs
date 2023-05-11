@@ -40,6 +40,8 @@ namespace Login
                 // Consulta SQL para seleccionar todos los productos
                 var users = conn.Query<users>("SELECT * FROM users");
 
+                bool userFound = false;
+
                 foreach (var user in users)
                 {
                     var firstName = user.FirstName;
@@ -49,22 +51,27 @@ namespace Login
                     {
                         if (txtPassword.Text.Equals(password))
                         {
-                            DisplayAlert("", "username and password corrects", "OK");
+                            DisplayAlert("", "Username and password correct", "OK");
                             Navigation.PushModalAsync(new ShopMenuPage());
                             Console.WriteLine("CORRECT");
+                            userFound = true;
                             break;
                         }
                     }
                 }
-                
+
+                if (!userFound)
+                {
+                    DisplayAlert("", "Incorrect username or password", "OK");
+                }
             }
             catch (Exception e2)
             {
-                DisplayAlert("", "something is not correct", "OK");
+                DisplayAlert("", "Something went wrong", "OK");
                 Console.WriteLine(e2.Message);
             }
-
         }
+
 
         private void OnRegisterClicked(object sender, EventArgs e)
         {
